@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Login from "./screens/Login&Register/Login.js";
+import Register from "./screens/Login&Register/Register.js";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -46,9 +47,14 @@ const TabNav = () => {
   )
 }
 function App(){
+  const stack = createNativeStackNavigator()
   return(
-  //<NavigationContainer><TabNav/></NavigationContainer>
-  <Login/>
+  <NavigationContainer>
+    <Stack.Navigator >
+      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+      <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  </NavigationContainer>
 )
 }
 
